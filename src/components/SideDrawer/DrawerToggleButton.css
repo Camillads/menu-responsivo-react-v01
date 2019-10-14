@@ -1,0 +1,9 @@
+.toggle-button {
+    display: flex;
+    flex-direction: column;
+    height: 20px;
+    width: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
