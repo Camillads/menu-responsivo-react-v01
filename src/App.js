@@ -2,8 +2,8 @@ import React from 'react';
 import { Component } from 'react';
 import './App.css';
 import Toolbar from './components/Toolbar/Toolbar';
-import SideDrawer from './components/SideDrawer/SideDrawer';
-import Backdrop from './components/Backdrop/Backdrop';
+import SideDrawer from './components/Menu/SideDrawer/SideDrawer';
+import Backdrop from './components/Menu/Backdrop/Backdrop';
 
 class App extends Component {
 
