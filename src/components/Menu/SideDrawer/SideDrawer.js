@@ -11,8 +11,8 @@ const slideDrawer = props => {
     return (
         <nav className={drawerClasses}>
             <ul>
-                <li><a href="/">Products</a></li>
-                <li><a href="/">Users</a></li>
+                <li><a href="/">PRODUCTS</a></li>
+                <li><a href="/">USERS</a></li>
             </ul>
         </nav>
     );
