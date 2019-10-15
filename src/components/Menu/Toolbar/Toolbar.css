@@ -17,7 +17,7 @@
     align-self: center;
     height: 100%;
     display: grid;
-    grid-template-columns: 2% 10% 88%;
+    grid-template-columns: 10% 90%;
 }
 
 .toolbar_logo {
@@ -39,7 +39,7 @@
 }
 
 .toolbar_navigation_items li {
-    padding: 0 10px;
+    padding: 0 20px;
 }
 
 .toolbar_navigation_items a {
