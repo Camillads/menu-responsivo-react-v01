@@ -31,12 +31,16 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Toolbar drawerClickHandler={this.drawerToggleClickHandler} />
-        <SideDrawer show={this.state.sideDrawerOpen} />
-        {backdrop}
-        <main style={{ height: '100%', marginTop: '5%'}}>
-          <div>This is page content!</div>
-        </main>
+        <div className="Menu">
+          <Toolbar drawerClickHandler={this.drawerToggleClickHandler} />
+          <SideDrawer show={this.state.sideDrawerOpen} />
+          {backdrop}
+        </div>
+        <div className="Main">
+          <main style={{ height: '100%' }}>
+            <div>This is page content!</div>
+          </main>
+        </div>
       </div>
     );
   }
