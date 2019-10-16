@@ -1,26 +1,25 @@
-import React from 'react';
-import { Component } from 'react';
-import './App.css';
-import Toolbar from './components/Menu/Toolbar/Toolbar';
-import SideDrawer from './components/Menu/SideDrawer/SideDrawer';
-import Backdrop from './components/Menu/Backdrop/Backdrop';
+import React from "react";
+import { Component } from "react";
+import "./App.css";
+import Toolbar from "./components/Menu/Toolbar/Toolbar";
+import SideDrawer from "./components/Menu/SideDrawer/SideDrawer";
+import Backdrop from "./components/Menu/Backdrop/Backdrop";
+import Login from "./components/Login/login";
 
 class App extends Component {
-
   state = {
     sideDrawerOpen: false
-
   };
 
   drawerToggleClickHandler = () => {
-    this.setState((prevState) => {
+    this.setState(prevState => {
       return { sideDrawerOpen: !prevState.sideDrawerOpen };
     });
   };
 
   backdropClickHandler = () => {
     this.setState({ sideDrawerOpen: false });
-  }
+  };
 
   render() {
     let backdrop;
@@ -34,8 +33,9 @@ class App extends Component {
         <Toolbar drawerClickHandler={this.drawerToggleClickHandler} />
         <SideDrawer show={this.state.sideDrawerOpen} />
         {backdrop}
-        <main style={{ height: '100%', marginTop: '5%'}}>
+        <main style={{ height: "100%", marginTop: "5%" }}>
           <div>This is page content!</div>
+          <Login />
         </main>
       </div>
     );
