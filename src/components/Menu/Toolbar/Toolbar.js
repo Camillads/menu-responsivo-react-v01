@@ -18,7 +18,7 @@ const toolbar = props => (
                         <li><a href="/">PRODUCTS</a></li>
                         <li><a href="/">USERS</a></li>
                         <div className="spacer" />
-                            <li><a href="/">LOGIN</a></li>
+                            <li><a href="/">LOGOUT</a></li>
                     </ul>
                 </div>
             </div>
