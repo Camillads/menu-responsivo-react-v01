@@ -5,7 +5,6 @@ import '../SideDrawer/DrawerToggleButton';
 import DrawerToggleButton from '../SideDrawer/DrawerToggleButton';
 import logo from '../../../images/logo.svg';
 
-
 const toolbar = props => (
     <header className="toolbar">
         <nav className="toolbar_navigation">
@@ -18,6 +17,8 @@ const toolbar = props => (
                     <ul>
                         <li><a href="/">PRODUCTS</a></li>
                         <li><a href="/">USERS</a></li>
+                        <div className="spacer" />
+                            <li><a href="/">LOGIN</a></li>
                     </ul>
                 </div>
             </div>
