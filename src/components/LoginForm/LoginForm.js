@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { login } from "../../redux/reducer";
+import LoginService from "../../redux/LoginService";
 import image from "../../images/maonaroda.png";
 import "./LoginForm.css";
 
@@ -89,10 +89,9 @@ const mapStateToProps = state => {
     loginError: state.loginError
   };
 };
-
 const mapDispatchToProps = dispatch => {
   return {
-    login: dados => dispatch(login(dados))
+    login: dados => dispatch(LoginService.login(dados))
   };
 };
 
