@@ -1,4 +1,4 @@
-import BaseService from "../services/BaseService";
+import BaseService from "./BaseService";
 
 import {
   URL_BASE,

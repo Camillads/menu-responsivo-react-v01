@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import LoginService from "../../redux/LoginService";
+import LoginService from "../../services/LoginService";
 import image from "../../images/maonaroda.png";
 import "./LoginForm.css";
 
