@@ -4,7 +4,7 @@ import "./App.css";
 import Toolbar from "./components/Menu/Toolbar/Toolbar";
 import SideDrawer from "./components/Menu/SideDrawer/SideDrawer";
 import Backdrop from "./components/Menu/Backdrop/Backdrop";
-import Login from "./components/Login/login";
+import LoginForm from "./components/LoginForm/LoginForm";
 
 class App extends Component {
   state = {
@@ -35,7 +35,7 @@ class App extends Component {
         {backdrop}
         <main style={{ height: "100%", marginTop: "5%" }}>
           <div>This is page content!</div>
-          <Login />
+          <LoginForm />
         </main>
       </div>
     );

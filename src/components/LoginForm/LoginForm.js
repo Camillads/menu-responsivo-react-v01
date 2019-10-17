@@ -7,8 +7,19 @@ import "./LoginForm.css";
 class LoginForm extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      email: "",
+      password: ""
+    };
     this.onSubmit = this.onSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    //Terminou de montar o componente
+  }
+
+  componentDidUpdate() {
+    //Teve update em algum componente da pagina
   }
 
   render() {
@@ -23,11 +34,11 @@ class LoginForm extends Component {
           <div className="form-group-collection">
             <div className="form-group">
               <input
-                type="email"
+                type="text"
                 name="email"
                 onChange={e => this.setState({ email: e.target.value })}
                 value={email}
-                maxlength="50"
+                maxLength="50"
                 placeholder="Email"
                 className="input"
               />
@@ -39,7 +50,7 @@ class LoginForm extends Component {
                 name="password"
                 onChange={e => this.setState({ password: e.target.value })}
                 value={password}
-                maxlength="15"
+                maxLength="15"
                 placeholder="Senha"
                 className="input"
               />
@@ -59,8 +70,11 @@ class LoginForm extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-    let { email, password } = this.state;
-    this.props.login(email, password);
+    const dados = {
+      email: this.state.email,
+      password: this.state.password
+    };
+    this.props.login(dados);
     this.setState({
       email: "",
       password: ""
@@ -78,7 +92,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    login: (email, password) => dispatch(login(email, password))
+    login: dados => dispatch(login(dados))
   };
 };
 
