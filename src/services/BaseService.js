@@ -43,13 +43,19 @@ class BaseService {
     }
   };
 
-  post = async (dados, url, settings = {}) => {
+  post = async (
+    dados,
+    url,
+    settings = {
+      headers: {}
+    }
+  ) => {
     try {
       return await axios
         .create(settings)
         .post(url, dados)
         .then(response => {
-          return response.data;
+          return response;
         })
         .catch(error => {
           console.log(error);

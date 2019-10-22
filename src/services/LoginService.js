@@ -52,7 +52,7 @@ class LoginService extends BaseService {
     const url = this.montaURL(URL_BASE, "/api/login");
     setTimeout(async () => {
       const response = await this.post(dados, url);
-      if (response.token) {
+      if (response.status === 200 && response.data === true) {
         return callback(null);
       } else {
         return callback(new Error("Dados inválidos"));
