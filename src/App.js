@@ -36,7 +36,7 @@ class App extends Component {
           {backdrop}
         </div>
         <div className="Main">
-          <main style={{ height: "100%", paddingTop: "2%" }}>
+          <main style={{ height: "100%" }}>
             <div>This is page content!</div>
             <LoginForm />
           </main>
