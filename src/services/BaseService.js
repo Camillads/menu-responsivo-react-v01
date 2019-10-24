@@ -25,27 +25,25 @@ class BaseService {
     return `${urlBase}${complementoURL}`;
   };
 
-  get = async (url, settings = {}) => {
+  get = async (url, dados = {}, settings = {}) => {
     try {
       return await axios
         .create(settings)
-        .get(url)
+        .get(url, dados)
         .then(response => {
-          return response.data;
+          return response;
         })
         .catch(error => {
-          console.log(error);
           return {};
         });
     } catch (e) {
-      console.log(e);
       return {};
     }
   };
 
   post = async (
-    dados,
     url,
+    dados = {},
     settings = {
       headers: {}
     }
@@ -58,11 +56,53 @@ class BaseService {
           return response;
         })
         .catch(error => {
-          console.log(error);
           return {};
         });
     } catch (e) {
-      console.log(e);
+      return {};
+    }
+  };
+
+  put = async (
+    url,
+    dados = {},
+    settings = {
+      headers: {}
+    }
+  ) => {
+    try {
+      return await axios
+        .create(settings)
+        .put(url, dados)
+        .then(response => {
+          return response;
+        })
+        .catch(error => {
+          return {};
+        });
+    } catch (e) {
+      return {};
+    }
+  };
+
+  delete = async (
+    url,
+    dados = {},
+    settings = {
+      headers: {}
+    }
+  ) => {
+    try {
+      return await axios
+        .create(settings)
+        .delete(url, dados)
+        .then(response => {
+          return response;
+        })
+        .catch(error => {
+          return {};
+        });
+    } catch (e) {
       return {};
     }
   };
