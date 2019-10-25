@@ -2,3 +2,5 @@ export const SET_LOGIN_PENDING = "SET_LOGIN_PENDING";
 export const SET_LOGIN_SUCCESS = "SET_LOGIN_SUCCESS";
 export const SET_LOGIN_ERROR = "SET_LOGIN_ERROR";
 export const URL_BASE = "https://reqres.in";
+export const TOKEN =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZpbGlwZS5hbG1laWRhQGR0aWRpZ2l0YWwuY29tLmJyIiwiaWQiOiI1ZDUxNmY5ZDkzMWQzMTAwMjRhZTVlMGQiLCJpYXQiOjE1NzE5MzY3Nzd9.7Ru622hwbjQwAy4YSrAHUY7cV4tf3-PXUz_rFXAlTL0";

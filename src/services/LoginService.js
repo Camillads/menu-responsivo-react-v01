@@ -4,21 +4,20 @@ import {
   URL_BASE,
   SET_LOGIN_PENDING,
   SET_LOGIN_SUCCESS,
-  SET_LOGIN_ERROR
+  SET_LOGIN_ERROR,
+  TOKEN
 } from "../constants/constants";
 
 class LoginService extends BaseService {
   login(dados) {
-    return dispatch => {
+    return async dispatch => {
       dispatch(this.setLoginPending(true));
       dispatch(this.setLoginSuccess(false));
       dispatch(this.setLoginError(null));
 
-      this.getUsersApi();
-      this.putUsersApi();
-      this.deleteUsersApi();
+      await this.getUsersApi();
 
-      this.makeLoginApi(dados, error => {
+      await this.makeLoginApi(dados, error => {
         dispatch(this.setLoginPending(false));
         if (!error) {
           dispatch(this.setLoginSuccess(true));
@@ -50,39 +49,43 @@ class LoginService extends BaseService {
     };
   }
 
-  makeLoginApi = (dados, callback) => {
+  async makeLoginApi(dados, callback) {
     const url = this.montaURL(URL_BASE, "/api/login");
-    setTimeout(async () => {
-      const response = await this.post(url, dados);
-      if (response.status === 200 && response.data.token) {
-        return callback(null);
-      } else {
-        return callback(new Error("Dados inválidos"));
+    const response = await this.post(url, dados);
+    console.log(response);
+    if (response.status === 200 && response.data.token) {
+      return callback(null);
+    } else {
+      return callback(new Error("Dados inválidos"));
+    }
+  }
+
+  async getUsersApi() {
+    const url =
+      "http://one-on-ones-dti.herokuapp.com/api/data_tribe/Andrômeda - MRV Comercial";
+    const response = await this.get(
+      url,
+      {},
+      {
+        headers: {
+          Authorization: "Bearer " + TOKEN
+        }
       }
-    }, 1000);
-  };
+    );
+    console.log(response);
+  }
 
-  getUsersApi = async () => {
-    const url = this.montaURL(URL_BASE, "/api/users?page=2");
-    const response = await this.get(url);
-    console.log(response.data);
-  };
-
-  putUsersApi = async () => {
-    const dados = {
-      name: "morpheus",
-      job: "zion resident"
-    };
+  async putUsersApi(dados) {
     const url = this.montaURL(URL_BASE, "/api/users/2");
     const response = await this.put(url, dados);
     console.log(response);
-  };
+  }
 
-  deleteUsersApi = async () => {
+  async deleteUsersApi() {
     const url = this.montaURL(URL_BASE, "/api/users/2");
     const response = await this.delete(url);
     console.log(response);
-  };
+  }
 }
 
 export default new LoginService();

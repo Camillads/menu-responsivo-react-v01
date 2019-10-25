@@ -2,30 +2,30 @@ import axios from "axios";
 import qs from "qs";
 
 class BaseService {
-  montaURLParametros = params => {
+  montaURLParametros(params) {
     return qs.stringify({ ...params });
-  };
+  }
 
-  montaFiltro = tempFilter => {
+  montaFiltro(tempFilter) {
     const filtro = this.montaURLParametros({
       filter: JSON.stringify(tempFilter)
     });
     return filtro;
-  };
+  }
 
-  montaCampos = campos => {
+  montaCampos(campos) {
     const camposRetorno = {};
     campos.forEach(campo => {
       camposRetorno[campo] = true;
     });
     return camposRetorno;
-  };
+  }
 
-  montaURL = (urlBase, complementoURL = "") => {
+  montaURL(urlBase, complementoURL = "") {
     return `${urlBase}${complementoURL}`;
-  };
+  }
 
-  get = async (url, dados = {}, settings = {}) => {
+  async get(url, dados = {}, settings = {}) {
     try {
       return await axios
         .create(settings)
@@ -39,15 +39,15 @@ class BaseService {
     } catch (e) {
       return {};
     }
-  };
+  }
 
-  post = async (
+  async post(
     url,
     dados = {},
     settings = {
       headers: {}
     }
-  ) => {
+  ) {
     try {
       return await axios
         .create(settings)
@@ -61,15 +61,15 @@ class BaseService {
     } catch (e) {
       return {};
     }
-  };
+  }
 
-  put = async (
+  async put(
     url,
     dados = {},
     settings = {
       headers: {}
     }
-  ) => {
+  ) {
     try {
       return await axios
         .create(settings)
@@ -83,15 +83,15 @@ class BaseService {
     } catch (e) {
       return {};
     }
-  };
+  }
 
-  delete = async (
+  async delete(
     url,
     dados = {},
     settings = {
       headers: {}
     }
-  ) => {
+  ) {
     try {
       return await axios
         .create(settings)
@@ -105,7 +105,7 @@ class BaseService {
     } catch (e) {
       return {};
     }
-  };
+  }
 }
 
 export default BaseService;
